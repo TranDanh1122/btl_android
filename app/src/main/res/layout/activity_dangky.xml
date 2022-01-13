@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DangkyActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tao account"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        >
+    </TextView>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User name"
+        android:id="@+id/username"
+        android:layout_margin="10dp"
+        ></com.rengwuxian.materialedittext.MaterialEditText>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:hint="Email"
+        android:layout_margin="10dp"
+        ></com.rengwuxian.materialedittext.MaterialEditText>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:id="@+id/password"
+        android:layout_margin="10dp"
+        ></com.rengwuxian.materialedittext.MaterialEditText>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dang ki tai khoan"
+        android:background="#FFFFFF"
+        android:id="@+id/dangki"
+        android:layout_margin="10dp"></Button>
+
+
+
+
+
+
+
+
+</LinearLayout>
