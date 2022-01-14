@@ -35,7 +35,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -193,10 +196,12 @@ public class chi_tab1_Fragment extends Fragment {
                                 int i=0;
                                 for(DataSnapshot dt: task.getResult().getChildren()){
                                     if(dt.child("content").getValue().toString()!=null) {
-                                        loaichi[i] = dt.child("content").getValue().toString();
-                                        i++;
-                                        Toast.makeText(chi_tab1_Fragment.this.getContext(),  dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
-                                    }
+                                        if(dt.child("id").getValue().toString().equals(myid)) {
+                                            loaichi[i] = dt.child("content").getValue().toString();
+                                            i++;
+                                            Toast.makeText(chi_tab1_Fragment.this.getContext(), dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        }
 
 
                                 }
@@ -266,6 +271,9 @@ public class chi_tab1_Fragment extends Fragment {
                             hashMap.put("pos",String.valueOf(maxid));
                             hashMap.put("content",khoanchi.getText().toString());
                             hashMap.put("type",spinnerloaichi.getSelectedItem().toString());
+                            DateFormat dateFormat = new SimpleDateFormat("MM");
+                            Date date = new Date();
+                            hashMap.put("month", dateFormat.format(date).toString());
                             reference.child(""+((int)maxid+1)).setValue(hashMap);
                             alertDialog.dismiss();
                             Toast.makeText(chi_tab1_Fragment.this.getContext(), "da them loai chi", Toast.LENGTH_SHORT).show();

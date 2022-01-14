@@ -3,11 +3,13 @@ package com.example.btl_final_final.fragmentleftbar;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.btl_final_final.R;
 import com.github.mikephil.charting.charts.BarChart;
@@ -15,8 +17,14 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +41,7 @@ public class home_Fragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    HashMap<String,Integer> hashMap=new HashMap<>();
     View rootview;
     public home_Fragment() {
         // Required empty public constructor
@@ -71,18 +80,45 @@ public class home_Fragment extends Fragment {
         rootview=inflater.inflate(R.layout.fragment_home_, container, false);
         BarChart barChart=rootview.findViewById(R.id.barchart);
         ArrayList<BarEntry> tongthu=new ArrayList<>();
-        tongthu.add(new BarEntry(1,100000));
-        tongthu.add(new BarEntry(2,103000));
-        tongthu.add(new BarEntry(3,1200000));
-        tongthu.add(new BarEntry(4,1600000));
-        tongthu.add(new BarEntry(5,300000));
-        tongthu.add(new BarEntry(6,700000));
-        tongthu.add(new BarEntry(7,11100000));
-        tongthu.add(new BarEntry(8,1200000));
-        tongthu.add(new BarEntry(9,200000));
-        tongthu.add(new BarEntry(10,2100000));
-        tongthu.add(new BarEntry(11,10110000));
-        tongthu.add(new BarEntry(12,28100000));
+
+        hashMap.put("1",0);
+        hashMap.put("2",0);
+        hashMap.put("3",0);
+        hashMap.put("4",0);
+        hashMap.put("5",0);
+        hashMap.put("6",0);
+        hashMap.put("7",0);
+        hashMap.put("8",0);
+        hashMap.put("9",0);
+        hashMap.put("10",0);
+        hashMap.put("11",0);
+        hashMap.put("12",0);
+
+
+        DatabaseReference refgetkhoanthu= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("khoanthu");
+        refgetkhoanthu.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.getResult().exists()) {
+
+
+
+                    for(DataSnapshot dt: task.getResult().getChildren()){
+                        String month=dt.child("month").getValue().toString();
+                        int tienthu=Integer.parseInt(dt.child("content").getValue().toString());
+                        int daco=hashMap.get(month);
+                        hashMap.put(month,daco+tienthu);
+
+                    }
+                }
+            }
+        });
+
+        for(int i=1;i<=12;i++){
+
+            tongthu.add(new BarEntry(i,hashMap.get(String.valueOf(i))));
+        }
+
 
         BarDataSet barDataSet=new BarDataSet(tongthu,"Tong thu");
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);

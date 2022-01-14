@@ -32,7 +32,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -189,10 +192,13 @@ public class thu_tab_Fragment extends Fragment {
                             int i=0;
                             for(DataSnapshot dt: task.getResult().getChildren()){
                                 if(dt.child("content").getValue().toString()!=null) {
-                                    loaithu[i] = dt.child("content").getValue().toString();
-                                    i++;
-                                    Toast.makeText(thu_tab_Fragment.this.getContext(),  dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
-                                }
+                                    if(dt.child("id").getValue().toString().equals(myid)) {
+                                        loaithu[i] = dt.child("content").getValue().toString();
+                                        i++;
+                                        Toast.makeText(thu_tab_Fragment.this.getContext(), dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
+                                    }
+                                    }
+
 
 
                             }
@@ -242,6 +248,7 @@ public class thu_tab_Fragment extends Fragment {
                             hashMap.put("pos",String.valueOf(flag));
                             hashMap.put("content",khoanthu.getText().toString());
                             hashMap.put("type",spinnerloaithu.getSelectedItem().toString());
+
                             reference.child(""+((int)flag+1)).setValue(hashMap);
                             alertDialog.dismiss();
                             Toast.makeText(thu_tab_Fragment.this.getContext(), "da them update loai thu", Toast.LENGTH_SHORT).show();
@@ -262,6 +269,9 @@ public class thu_tab_Fragment extends Fragment {
                             hashMap.put("pos",String.valueOf(maxid));
                             hashMap.put("content",khoanthu.getText().toString());
                             hashMap.put("type",spinnerloaithu.getSelectedItem().toString());
+                            DateFormat dateFormat = new SimpleDateFormat("MM");
+                            Date date = new Date();
+                            hashMap.put("month", dateFormat.format(date).toString());
                             reference.child(""+((int)maxid+1)).setValue(hashMap);
                             alertDialog.dismiss();
                             Toast.makeText(thu_tab_Fragment.this.getContext(), "da them loai thu", Toast.LENGTH_SHORT).show();
