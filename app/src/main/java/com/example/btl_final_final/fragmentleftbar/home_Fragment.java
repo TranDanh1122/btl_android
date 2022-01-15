@@ -43,6 +43,7 @@ public class home_Fragment extends Fragment {
     private String mParam2;
     HashMap<String,Integer> hashMap=new HashMap<>();
     View rootview;
+    ArrayList<BarEntry> tongthu;
     public home_Fragment() {
         // Required empty public constructor
     }
@@ -79,20 +80,9 @@ public class home_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         rootview=inflater.inflate(R.layout.fragment_home_, container, false);
         BarChart barChart=rootview.findViewById(R.id.barchart);
-        ArrayList<BarEntry> tongthu=new ArrayList<>();
 
-        hashMap.put("1",0);
-        hashMap.put("2",0);
-        hashMap.put("3",0);
-        hashMap.put("4",0);
-        hashMap.put("5",0);
-        hashMap.put("6",0);
-        hashMap.put("7",0);
-        hashMap.put("8",0);
-        hashMap.put("9",0);
-        hashMap.put("10",0);
-        hashMap.put("11",0);
-        hashMap.put("12",0);
+
+
 
 
         DatabaseReference refgetkhoanthu= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("khoanthu");
@@ -100,35 +90,52 @@ public class home_Fragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if(task.getResult().exists()) {
+                    tongthu=new ArrayList<>();
 
-
-
+                    hashMap.put("01",0);
+                    hashMap.put("02",0);
+                    hashMap.put("03",0);
+                    hashMap.put("04",0);
+                    hashMap.put("05",0);
+                    hashMap.put("06",0);
+                    hashMap.put("07",0);
+                    hashMap.put("08",0);
+                    hashMap.put("09",0);
+                    hashMap.put("10",0);
+                    hashMap.put("11",0);
+                    hashMap.put("12",0);
                     for(DataSnapshot dt: task.getResult().getChildren()){
                         String month=dt.child("month").getValue().toString();
                         int tienthu=Integer.parseInt(dt.child("content").getValue().toString());
                         int daco=hashMap.get(month);
                         hashMap.put(month,daco+tienthu);
 
+
+
                     }
+
+                    for(int i=1;i<=12;i++){
+
+                tongthu.add(new BarEntry(i, i<10?hashMap.get("0"+i):hashMap.get(String.valueOf(i))));
+
+
+                    }
+                    BarDataSet barDataSet=new BarDataSet(tongthu,"Tong thu");
+                    barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+                    barDataSet.setValueTextColor(Color.BLACK);
+                    barDataSet.setValueTextSize(14f);
+                    BarData barData=new BarData(barDataSet);
+                    barChart.setFitBars(true);
+                    barChart.setData(barData);
+                    barChart.getDescription().setText("Tong thu hang thang");
+                    barChart.animateY(2000);
+
                 }
             }
         });
 
-        for(int i=1;i<=12;i++){
-
-            tongthu.add(new BarEntry(i,hashMap.get(String.valueOf(i))));
-        }
 
 
-        BarDataSet barDataSet=new BarDataSet(tongthu,"Tong thu");
-        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
-        barDataSet.setValueTextColor(Color.BLACK);
-        barDataSet.setValueTextSize(14f);
-        BarData barData=new BarData(barDataSet);
-        barChart.setFitBars(true);
-        barChart.setData(barData);
-        barChart.getDescription().setText("Tong thu hang thang");
-        barChart.animateY(2000);
 
         return rootview;
     }
