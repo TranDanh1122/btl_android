@@ -50,7 +50,6 @@
             android:gravity="bottom"
             android:orientation="vertical"
             android:padding="16dp"
-
             android:backgroundTint="@color/colorPrimary">
             <ImageView
                 android:id="@+id/back"

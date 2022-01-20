@@ -31,8 +31,26 @@
     <ListView
         android:layout_width="match_parent"
         android:id="@+id/listkhoanthu"
-        android:layout_height="wrap_content">
+        android:layout_height="500dp">
 
     </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="Tong:"
+        ></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:id="@+id/tong"
+
+            ></TextView>
+    </LinearLayout>
 
 </LinearLayout>
