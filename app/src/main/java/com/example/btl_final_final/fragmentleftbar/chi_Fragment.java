@@ -77,10 +77,10 @@ public class chi_Fragment extends Fragment {
         new TabLayoutMediator(mtab, myview, (tab, position) -> {
             switch (position){
                 case 0:
-                    tab.setText("Khoan Chi");
+                    tab.setText("Các khoản chi");
 
                     break;
-                case 1: tab.setText("Loai Chi");
+                case 1: tab.setText("Phân loại khoản chi");
                     break;
             }
         }).attach();

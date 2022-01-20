@@ -11,9 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TẠO ACCOUNT"
-        android:textSize="30dp"
         android:gravity="center"
         android:layout_margin="10dp"
+        android:textColor="#7C5F16"
+        android:textStyle="bold"
+        android:textSize="45dp"
         >
     </TextView>
     <TextView
