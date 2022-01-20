@@ -49,18 +49,31 @@
             android:gravity="bottom"
             android:orientation="vertical"
             android:padding="16dp"
+<<<<<<< HEAD
             android:backgroundTint="@color/colorPrimary">
             <ImageView
                 android:id="@+id/back"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+=======
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+>>>>>>> 436070a10f810e6045e8042589c8ac2299a4350f
                 android:layout_marginTop="45dp"
                 android:src="@drawable/ic_back" />
             <ImageView
                 android:id="@+id/avt"
+<<<<<<< HEAD
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:src="@drawable/ic_avatar"
+=======
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+>>>>>>> 436070a10f810e6045e8042589c8ac2299a4350f
                 android:layout_marginTop="20dp"
                 />
             <TextView
@@ -70,7 +83,16 @@
                 android:layout_marginTop="16dp"
                 android:text="Tran Danh"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+<<<<<<< HEAD
 
+=======
+            <TextView
+                android:id="@+id/mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="trandanh@gmail.com"
+                />
+>>>>>>> 436070a10f810e6045e8042589c8ac2299a4350f
         </LinearLayout>
 
         <com.google.android.material.navigation.NavigationView
@@ -79,12 +101,20 @@
             android:backgroundTint="@color/white"
             android:id="@+id/sidemenu"
             android:layout_height="match_parent"
+<<<<<<< HEAD
             >
+=======
+            android:theme="@style/Theme.AppCompat.DialogWhenLarge">
+>>>>>>> 436070a10f810e6045e8042589c8ac2299a4350f
             <Button
                 android:id="@+id/home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_marginTop="10dp"
+=======
+                android:layout_marginTop="100dp"
+>>>>>>> 436070a10f810e6045e8042589c8ac2299a4350f
                 android:text="Trang chủ"
                 android:textSize="25dp"
                 />
@@ -92,18 +122,28 @@
                 android:id="@+id/thu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_marginTop="70dp"
                 android:textSize="25dp"
 
+=======
+                android:layout_marginTop="130dp"
+                android:textSize="25dp"
+>>>>>>> 436070a10f810e6045e8042589c8ac2299a4350f
                 android:text="Khoản thu"
                  />
             <Button
                 android:id="@+id/chi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_marginTop="130dp"
                 android:textSize="25dp"
 
+=======
+                android:layout_marginTop="160dp"
+                android:textSize="25dp"
+>>>>>>> 436070a10f810e6045e8042589c8ac2299a4350f
                 android:text="Khoản chi"
                 />
         </com.google.android.material.navigation.NavigationView>
