@@ -82,9 +82,9 @@ public class Thu_Fragment extends Fragment {
         new TabLayoutMediator(mtab, myview, (tab, position) -> {
             switch (position){
                 case 0:
-                    tab.setText("Khoan Thu");
+                    tab.setText("Các khoản thu");
                     break;
-                case 1: tab.setText("Loai thu");
+                case 1: tab.setText("Phân loại khoản thu");
                 break;
             }
         }).attach();
