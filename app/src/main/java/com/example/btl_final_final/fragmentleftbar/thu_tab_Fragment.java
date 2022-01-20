@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.btl_final_final.R;
@@ -33,8 +34,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -63,11 +66,12 @@ public class thu_tab_Fragment extends Fragment {
     private EditText khoanthu;
     private Button save,close,remove;
     DatabaseReference reference;
-    int maxid=0;
+    int maxid=0,tongint=0;
     int flag=-1;
     private Spinner spinnerloaithu;
     ImageView add;
     String[] loaithu;
+    TextView tong;
     public thu_tab_Fragment() {
         // Required empty public constructor
     }
@@ -118,7 +122,7 @@ public class thu_tab_Fragment extends Fragment {
         dialogbuider=new AlertDialog.Builder(thu_tab_Fragment.this.getContext());
         dialogbuider.setView(popupxml);
         alertDialog=dialogbuider.create();
-
+    tong=rootview.findViewById(R.id.tong);
         reference = FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("khoanthu");
 
         lvDanhSach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -305,10 +309,20 @@ public class thu_tab_Fragment extends Fragment {
                         String type = dt.child("type").getValue(String.class);
                         if(content==null){}else {
                             if (dt.child("id").getValue().toString().equals(myid)) {
-                                khoanthuArrayList.add(new khoanthu(content, id, type));
+                                tongint+=Integer.parseInt(content);
+                                NumberFormat format = NumberFormat.getCurrencyInstance();
+                                format.setMaximumFractionDigits(0);
+                                format.setCurrency(Currency.getInstance("VND"));
+                                khoanthuArrayList.add(new khoanthu( format.format(Integer.parseInt(content)), id, type));
+
                             }
                         }
                     }
+                    NumberFormat format = NumberFormat.getCurrencyInstance();
+                    format.setMaximumFractionDigits(0);
+                    format.setCurrency(Currency.getInstance("VND"));
+
+                    tong.setText(format.format(tongint));
                     adapter = new khoanthu_ctrl(thu_tab_Fragment.this.getContext(), R.layout.khoanthu_list, khoanthuArrayList);
                     adapter.notifyDataSetChanged();
                     lvDanhSach.setAdapter(adapter);
@@ -319,6 +333,7 @@ public class thu_tab_Fragment extends Fragment {
 
             }
         });
+
         return rootview;
     }
 }

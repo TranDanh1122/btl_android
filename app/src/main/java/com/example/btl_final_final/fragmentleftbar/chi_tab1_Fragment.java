@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.btl_final_final.R;
@@ -36,8 +37,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -66,11 +69,12 @@ public class chi_tab1_Fragment extends Fragment {
     private EditText khoanchi;
     private Button save,close,remove;
     DatabaseReference reference;
-    int maxid=0;
+    int maxid=0, tongint=0;
     int flag=-1;
     private Spinner spinnerloaichi;
     ImageView add;
     String[] loaichi;
+    TextView tong;
     public chi_tab1_Fragment() {
         // Required empty public constructor
     }
@@ -112,7 +116,7 @@ public class chi_tab1_Fragment extends Fragment {
         String myid=currentuserid.getUid();
         add=rootview.findViewById(R.id.add);
         lvDanhSach=rootview.findViewById(R.id.listkhoanchi);
-
+        tong=rootview.findViewById(R.id.tongch);
         //popupadd
         final View popupxml=inflater.inflate(R.layout.popup_add_khoanthuchi, null);
         khoanchi=(EditText)popupxml.findViewById(R.id.khoanthuchi);
@@ -311,10 +315,19 @@ public class chi_tab1_Fragment extends Fragment {
                         String type = dt.child("type").getValue(String.class);
                         if(content==null){}else {
                             if (dt.child("id").getValue().toString().equals(myid)) {
-                                khoanchiArrayList.add(new khoanchi(content, id, type));
+                                tongint+=Integer.parseInt(content);
+                                NumberFormat format = NumberFormat.getCurrencyInstance();
+                                format.setMaximumFractionDigits(0);
+                                format.setCurrency(Currency.getInstance("VND"));
+                                khoanchiArrayList.add(new khoanchi(format.format(Integer.parseInt(content)), id, type));
                             }
                         }
                     }
+                    NumberFormat format = NumberFormat.getCurrencyInstance();
+                    format.setMaximumFractionDigits(0);
+                    format.setCurrency(Currency.getInstance("VND"));
+
+                    tong.setText(format.format(tongint));
                     adapter = new khoanchi_ctrl(chi_tab1_Fragment.this.getContext(), R.layout.khoanchi_list, khoanchiArrayList);
                     adapter.notifyDataSetChanged();
                     lvDanhSach.setAdapter(adapter);
