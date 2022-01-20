@@ -122,6 +122,7 @@ public class chi_tab2_Fragment extends Fragment {
                     loaichi.setText(loaichiArrayList.get(position).getLoaichi());
                     flag=position;
                     alertDialog.show();
+                    alertDialog.getWindow().setLayout(1550, 1550);
                 }
             });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -135,6 +136,7 @@ public class chi_tab2_Fragment extends Fragment {
             public void onClick(View v) {
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
 

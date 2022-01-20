@@ -15,8 +15,6 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
-
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="50dp"
@@ -28,12 +26,11 @@
         android:layout_marginRight="8dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_menu"
-
         />
         <Toolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/design_default_color_error">
+            android:background="@color/colorPrimary">
         </Toolbar>
 </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,18 +39,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/maincontent">
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </LinearLayout>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_gravity="left"
-
         android:orientation="vertical"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,20 +54,18 @@
             android:orientation="vertical"
             android:padding="16dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
             <ImageView
                 android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="45dp"
                 android:src="@drawable/ic_back" />
-
             <ImageView
                 android:id="@+id/avt"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_marginTop="16dp" />
-
+                android:layout_marginTop="20dp"
+                />
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
@@ -83,13 +73,12 @@
                 android:layout_marginTop="16dp"
                 android:text="Tran Danh"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
             <TextView
                 android:id="@+id/mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="trandanh@gmail.com" />
-
+                android:text="trandanh@gmail.com"
+                />
         </LinearLayout>
 
         <com.google.android.material.navigation.NavigationView
@@ -99,46 +88,30 @@
             android:id="@+id/sidemenu"
             android:layout_height="match_parent"
             android:theme="@style/Theme.AppCompat.DialogWhenLarge">
-
             <Button
                 android:id="@+id/home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-
-                android:text="HOME"
-
+                android:layout_marginTop="100dp"
+                android:text="Trang chủ"
                 android:textSize="25dp"
-
                 />
-
             <Button
-
                 android:id="@+id/thu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="160dp"
-
+                android:layout_marginTop="130dp"
                 android:textSize="25dp"
-
-
-                android:text="THU"
-
+                android:text="Khoản thu"
                  />
             <Button
                 android:id="@+id/chi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="200dp"
-
+                android:layout_marginTop="160dp"
                 android:textSize="25dp"
-
-                android:text="CHI"
-
+                android:text="Khoản chi"
                 />
         </com.google.android.material.navigation.NavigationView>
-
-
-
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

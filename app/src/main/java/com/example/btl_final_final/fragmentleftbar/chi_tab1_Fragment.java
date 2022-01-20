@@ -172,6 +172,7 @@ public class chi_tab1_Fragment extends Fragment {
                 });
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -225,6 +226,7 @@ public class chi_tab1_Fragment extends Fragment {
 
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
 

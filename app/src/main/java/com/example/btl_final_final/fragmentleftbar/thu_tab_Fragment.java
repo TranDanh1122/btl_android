@@ -119,11 +119,7 @@ public class thu_tab_Fragment extends Fragment {
         dialogbuider.setView(popupxml);
         alertDialog=dialogbuider.create();
 
-
-
-
-
-        reference= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("khoanthu");
+        reference = FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("khoanthu");
 
         lvDanhSach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -147,8 +143,6 @@ public class thu_tab_Fragment extends Fragment {
                                     i++;
                                     Toast.makeText(thu_tab_Fragment.this.getContext(),  dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
                                 }
-
-
                             }
                             String[] arrlc=new String[(int)i];
                             for (int j=0;j<i;j++){
@@ -168,6 +162,7 @@ public class thu_tab_Fragment extends Fragment {
                 });
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -222,6 +217,7 @@ public class thu_tab_Fragment extends Fragment {
 
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
 

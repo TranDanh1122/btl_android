@@ -117,8 +117,6 @@ public class home_Fragment extends Fragment {
                     for(int i=1;i<=12;i++){
 
                 tongthu.add(new BarEntry(i, i<10?hashMap.get("0"+i):hashMap.get(String.valueOf(i))));
-
-
                     }
                     BarDataSet barDataSet=new BarDataSet(tongthu,"Tong thu");
                     barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
@@ -129,7 +127,6 @@ public class home_Fragment extends Fragment {
                     barChart.setData(barData);
                     barChart.getDescription().setText("Tong thu hang thang");
                     barChart.animateY(2000);
-
                 }
             }
         });

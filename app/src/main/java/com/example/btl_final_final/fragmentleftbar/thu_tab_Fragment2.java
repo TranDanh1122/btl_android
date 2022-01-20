@@ -119,6 +119,7 @@ public class thu_tab_Fragment2 extends Fragment {
                 loaithu.setText(loaithuArrayList.get(position).getLoaithu());
                 flag=position;
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -132,6 +133,7 @@ public class thu_tab_Fragment2 extends Fragment {
             public void onClick(View v) {
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
 
