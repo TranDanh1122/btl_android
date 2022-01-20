@@ -31,7 +31,9 @@
     <ListView
         android:layout_width="match_parent"
         android:id="@+id/listkhoanchi"
-        android:layout_height="400dp">
+        android:layout_height="400dp"
+        android:layout_gravity="right"
+        android:foregroundGravity="right">
 
     </ListView>
     <LinearLayout
@@ -42,13 +44,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:text="Tong:"
+            android:text="Tổng chi:"
+            android:textColor="#CC2222"
+            android:textStyle="bold"
             ></TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:text="tongchi"
+            android:layout_gravity="right"
+            android:gravity="right"
             android:id="@+id/tongch"
 
             ></TextView>

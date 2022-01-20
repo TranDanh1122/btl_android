@@ -25,19 +25,25 @@
         android:layout_height="wrap_content"
         android:text="LOGIN"
         android:layout_margin="20dp"
-        android:id="@+id/chuyenlogin"></Button>
+        android:id="@+id/chuyenlogin"
+        android:textStyle="bold"
+        android:textSize="25sp"></Button>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="OR"
-        android:textSize="20dp"
+        android:textSize="25sp"
         android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         ></TextView>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="REGISTER"
         android:layout_margin="20dp"
-        android:id="@+id/chuyenregister"></Button>
+        android:id="@+id/chuyenregister"
+        android:textStyle="bold"
+        android:textSize="25sp"></Button>
 
 </LinearLayout>
