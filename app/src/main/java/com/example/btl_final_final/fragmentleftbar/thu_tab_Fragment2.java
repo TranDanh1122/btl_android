@@ -119,6 +119,7 @@ public class thu_tab_Fragment2 extends Fragment {
                 loaithu.setText(loaithuArrayList.get(position).getLoaithu());
                 flag=position;
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -132,6 +133,7 @@ public class thu_tab_Fragment2 extends Fragment {
             public void onClick(View v) {
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
 
@@ -206,8 +208,11 @@ public class thu_tab_Fragment2 extends Fragment {
                     for (DataSnapshot dt : dataSnapshot.getChildren()) {
                         String content = dt.child("content").getValue(String.class);
                         String id = dt.child("pos").getValue(String.class);
-                        if(content==null){}else{
-                            loaithuArrayList.add(new loaithu(content,id));}
+                        if(content==null){}else {
+                            if (dt.child("id").getValue().toString().equals(myid)) {
+                                loaithuArrayList.add(new loaithu(content, id));
+                            }
+                        }
                     }
                     adapter = new loaithu_ctrl(thu_tab_Fragment2.this.getContext(), R.layout.loaithu_list, loaithuArrayList);
                     adapter.notifyDataSetChanged();

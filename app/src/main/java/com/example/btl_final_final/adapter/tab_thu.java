@@ -19,7 +19,7 @@ public class tab_thu extends FragmentStateAdapter {
     public tab_thu(@NonNull Fragment fragment) {
         super(fragment);
         tab1=new thu_tab_Fragment();
-       tab2=new thu_tab_Fragment2();
+        tab2=new thu_tab_Fragment2();
     }
 //    public tab_thu(@NonNull FragmentActivity fragmentActivity) {
 //        super(fragmentActivity);

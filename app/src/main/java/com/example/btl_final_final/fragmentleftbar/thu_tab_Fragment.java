@@ -119,11 +119,7 @@ public class thu_tab_Fragment extends Fragment {
         dialogbuider.setView(popupxml);
         alertDialog=dialogbuider.create();
 
-
-
-
-
-        reference= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("khoanthu");
+        reference = FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("khoanthu");
 
         lvDanhSach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -143,12 +139,12 @@ public class thu_tab_Fragment extends Fragment {
                             int i=0;
                             for(DataSnapshot dt: task.getResult().getChildren()){
                                 if(dt.child("content").getValue().toString()!=null) {
-                                    loaithu[i] = dt.child("content").getValue().toString();
-                                    i++;
-                                    Toast.makeText(thu_tab_Fragment.this.getContext(),  dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
+                                    if (dt.child("id").getValue().toString().equals(myid)) {
+                                        loaithu[i] = dt.child("content").getValue().toString();
+                                        i++;
+                                        Toast.makeText(thu_tab_Fragment.this.getContext(), dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-
-
                             }
                             String[] arrlc=new String[(int)i];
                             for (int j=0;j<i;j++){
@@ -168,6 +164,7 @@ public class thu_tab_Fragment extends Fragment {
                 });
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -222,7 +219,9 @@ public class thu_tab_Fragment extends Fragment {
 
 
                 alertDialog.show();
-                alertDialog.getWindow().setLayout(600, 400);
+
+                alertDialog.getWindow().setLayout(1550, 1550);
+
             }
         });
 
@@ -304,8 +303,11 @@ public class thu_tab_Fragment extends Fragment {
                         String content = dt.child("content").getValue(String.class);
                         String id = dt.child("pos").getValue(String.class);
                         String type = dt.child("type").getValue(String.class);
-                        if(content==null){}else{
-                            khoanthuArrayList.add(new khoanthu(content,id,type));}
+                        if(content==null){}else {
+                            if (dt.child("id").getValue().toString().equals(myid)) {
+                                khoanthuArrayList.add(new khoanthu(content, id, type));
+                            }
+                        }
                     }
                     adapter = new khoanthu_ctrl(thu_tab_Fragment.this.getContext(), R.layout.khoanthu_list, khoanthuArrayList);
                     adapter.notifyDataSetChanged();

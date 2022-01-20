@@ -122,6 +122,7 @@ public class chi_tab2_Fragment extends Fragment {
                     loaichi.setText(loaichiArrayList.get(position).getLoaichi());
                     flag=position;
                     alertDialog.show();
+                    alertDialog.getWindow().setLayout(1550, 1550);
                 }
             });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -135,6 +136,7 @@ public class chi_tab2_Fragment extends Fragment {
             public void onClick(View v) {
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
 
@@ -210,8 +212,11 @@ public class chi_tab2_Fragment extends Fragment {
                     for (DataSnapshot dt : dataSnapshot.getChildren()) {
                         String content = dt.child("content").getValue(String.class);
                         String id = dt.child("pos").getValue(String.class);
-                        if(content==null){}else{
-                        loaichiArrayList.add(new loaichi(content,id));}
+                        if(content==null){}else {
+                            if (dt.child("id").getValue().toString().equals(myid)) {
+                                loaichiArrayList.add(new loaichi(content, id));
+                            }
+                        }
                     }
                 adapter = new loaichi_ctrl(chi_tab2_Fragment.this.getContext(), R.layout.loaichi_list, loaichiArrayList);
                 adapter.notifyDataSetChanged();

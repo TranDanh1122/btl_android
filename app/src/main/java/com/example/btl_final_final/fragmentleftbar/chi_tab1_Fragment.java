@@ -147,9 +147,11 @@ public class chi_tab1_Fragment extends Fragment {
                             int i=0;
                             for(DataSnapshot dt: task.getResult().getChildren()){
                                 if(dt.child("content").getValue().toString()!=null) {
+                                    if(dt.child("id").getValue().toString().equals(myid)) {
                                     loaichi[i] = dt.child("content").getValue().toString();
                                     i++;
                                     Toast.makeText(chi_tab1_Fragment.this.getContext(),  dt.child("content").getValue().toString(), Toast.LENGTH_SHORT).show();
+                                }
                                 }
 
 
@@ -172,6 +174,7 @@ public class chi_tab1_Fragment extends Fragment {
                 });
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -225,6 +228,7 @@ public class chi_tab1_Fragment extends Fragment {
 
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(1550, 1550);
             }
         });
 
@@ -305,8 +309,11 @@ public class chi_tab1_Fragment extends Fragment {
                         String content = dt.child("content").getValue(String.class);
                         String id = dt.child("pos").getValue(String.class);
                         String type = dt.child("type").getValue(String.class);
-                        if(content==null){}else{
-                            khoanchiArrayList.add(new khoanchi(content,id,type));}
+                        if(content==null){}else {
+                            if (dt.child("id").getValue().toString().equals(myid)) {
+                                khoanchiArrayList.add(new khoanchi(content, id, type));
+                            }
+                        }
                     }
                     adapter = new khoanchi_ctrl(chi_tab1_Fragment.this.getContext(), R.layout.khoanchi_list, khoanchiArrayList);
                     adapter.notifyDataSetChanged();

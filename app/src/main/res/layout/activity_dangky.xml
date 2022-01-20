@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tao account"
+        android:text="TẠO ACCOUNT"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_margin="10dp"
@@ -34,21 +34,14 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:id="@+id/password"
+        android:inputType="textPassword"
         android:layout_margin="10dp"
         ></com.rengwuxian.materialedittext.MaterialEditText>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dang ki tai khoan"
+        android:text="Đăng kí tài khoản"
         android:background="#FFFFFF"
         android:id="@+id/dangki"
         android:layout_margin="10dp"></Button>
-
-
-
-
-
-
-
-
 </LinearLayout>

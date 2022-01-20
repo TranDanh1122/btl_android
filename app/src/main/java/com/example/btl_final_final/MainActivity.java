@@ -29,6 +29,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,7 +43,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button homebtn,thubtn,chibtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
+                .build();
+
         setContentView(R.layout.activity_main);
         imageView=(ImageView)findViewById(R.id.imageView);
         back=(ImageView)findViewById(R.id.back);
@@ -65,7 +72,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //load current user
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.setFirestoreSettings(settings);
         reference.child("User").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
 
