@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -36,6 +37,16 @@ public class DangnhapActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         dangnhap = findViewById(R.id.dangnhap);
         auth = FirebaseAuth.getInstance();
+        password.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    return true;
+                }
+                return false;
+            }
+        });
         dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +54,6 @@ public class DangnhapActivity extends AppCompatActivity {
             }
         });
     }
-
     public void login(String email, String password) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(DangnhapActivity.this, new OnCompleteListener<AuthResult>() {
             @Override

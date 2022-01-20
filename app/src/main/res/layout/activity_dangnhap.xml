@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".DangkyActivity"
-    android:layout_marginTop="200dp">
+    android:background="@drawable/background"
+    >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,10 +15,16 @@
         android:textSize="30dp"
         android:gravity="center"
         android:layout_margin="10dp"
-
         >
     </TextView>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhập địa chỉ email:"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        >
+    </TextView>
     <com.rengwuxian.materialedittext.MaterialEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +32,14 @@
         android:hint="Email"
         android:layout_margin="10dp"
         ></com.rengwuxian.materialedittext.MaterialEditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhập password:"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        >
+    </TextView>
     <com.rengwuxian.materialedittext.MaterialEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +47,8 @@
         android:inputType="textPassword"
         android:id="@+id/password"
         android:layout_margin="10dp"
-        ></com.rengwuxian.materialedittext.MaterialEditText>
+        >
+    </com.rengwuxian.materialedittext.MaterialEditText>
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -41,12 +57,4 @@
         android:background="#FFFFFF"
         android:id="@+id/dangnhap"
         android:layout_margin="10dp"></Button>
-
-
-
-
-
-
-
-
 </LinearLayout>
