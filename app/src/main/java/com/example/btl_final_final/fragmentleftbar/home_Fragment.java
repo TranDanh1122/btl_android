@@ -19,6 +19,8 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -106,9 +108,14 @@ public class home_Fragment extends Fragment {
                     hashMap.put("12",0);
                     for(DataSnapshot dt: task.getResult().getChildren()){
                         String month=dt.child("month").getValue().toString();
+
+                        FirebaseUser currentuserid= FirebaseAuth.getInstance().getCurrentUser();
+                        String myid=currentuserid.getUid();
+                        String id=dt.child("id").getValue().toString();
+                        if(myid.equals(id)){
                         int tienthu=Integer.parseInt(dt.child("content").getValue().toString());
                         int daco=hashMap.get(month);
-                        hashMap.put(month,daco+tienthu);
+                        hashMap.put(month,daco+tienthu);}
 
 
 

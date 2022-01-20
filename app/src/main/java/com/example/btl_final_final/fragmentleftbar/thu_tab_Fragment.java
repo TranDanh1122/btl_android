@@ -222,6 +222,7 @@ public class thu_tab_Fragment extends Fragment {
 
 
                 alertDialog.show();
+                alertDialog.getWindow().setLayout(600, 400);
             }
         });
 
