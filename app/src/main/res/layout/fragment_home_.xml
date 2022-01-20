@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".fragmentleftbar.home_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barchart"
+        android:id="@+id/barchartthu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="350dp">
     </com.github.mikephil.charting.charts.BarChart>
-</FrameLayout>
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchartchi"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="350dp">
+    </com.github.mikephil.charting.charts.BarChart>
+</LinearLayout>
