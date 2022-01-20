@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int thu=2;
     public static final int chi=3;
     public static  int current=home;
-    Button homebtn,thubtn,chibtn;
+    Button homebtn,thubtn,chibtn,logout;
+    TextView mail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -59,9 +61,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         homebtn=(Button)findViewById(R.id.home);
         thubtn=(Button)findViewById(R.id.thu);
         chibtn=(Button)findViewById(R.id.chi);
+        logout=(Button)findViewById(R.id.logout);
         homebtn.setOnClickListener(this);
         thubtn.setOnClickListener(this);
         chibtn.setOnClickListener(this);
+        logout.setOnClickListener(this);
         TextView name, email;
         name=findViewById(R.id.username);
         email=findViewById(R.id.email);
@@ -74,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DatabaseReference reference= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.setFirestoreSettings(settings);
+        String currentuseremail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        mail=findViewById(R.id.mail);
+        mail.setText(currentuseremail);
         reference.child("User").child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 
             @Override
@@ -121,6 +129,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     current = thu;
                 }
                 draw.closeDrawers();
+                break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this,StartActivity.class));
+                finish();
+
                 break;
         }
 
