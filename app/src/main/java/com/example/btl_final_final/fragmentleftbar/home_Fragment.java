@@ -122,7 +122,7 @@ public class home_Fragment extends Fragment {
                 tongthu.add(new BarEntry(i, i<10?hashMapthu.get("0"+i):hashMapthu.get(String.valueOf(i))));
                     }
                     BarDataSet barDataSetthu=new BarDataSet(tongthu,"Tong thu");
-                    barDataSetthu.setColors(ColorTemplate.MATERIAL_COLORS);
+                    barDataSetthu.setColors(Color.RED);
                     barDataSetthu.setValueTextColor(Color.BLACK);
                     barDataSetthu.setValueTextSize(14f);
                     BarData barData=new BarData(barDataSetthu);
@@ -180,7 +180,7 @@ public class home_Fragment extends Fragment {
                         tongchi.add(new BarEntry(i, i<10?hashMapchi.get("0"+i):hashMapchi.get(String.valueOf(i))));
                     }
                     BarDataSet barDataSetchi=new BarDataSet(tongchi,"Tong chi");
-                    barDataSetchi.setColors(ColorTemplate.MATERIAL_COLORS);
+                    barDataSetchi.setColors(Color.BLUE);
                     barDataSetchi.setValueTextColor(Color.BLACK);
                     barDataSetchi.setValueTextSize(14f);
                     BarData barData=new BarData(barDataSetchi);
