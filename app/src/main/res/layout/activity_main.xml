@@ -7,37 +7,37 @@
     android:id="@+id/draw"
     tools:context=".MainActivity"
     >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="fitCenter"
-        android:background="@color/colorPrimary"
-        android:src="@drawable/ic_menu"
-        />
-        <Toolbar
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_menu"
+                />
+            <Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+            </Toolbar>
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary">
-        </Toolbar>
-</LinearLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/maincontent">
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/maincontent">
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_gravity="left"
@@ -93,9 +93,11 @@
                 android:id="@+id/home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
                 android:layout_marginTop="10dp"
                 android:text="Trang chủ"
                 android:textSize="25dp"
+                android:textColor="#000"
                 />
             <Button
                 android:id="@+id/thu"
@@ -104,7 +106,8 @@
                 android:layout_marginTop="70dp"
                 android:textSize="25dp"
                 android:text="Khoản thu"
-                 />
+                android:textColor="#000"
+                />
             <Button
                 android:id="@+id/chi"
                 android:layout_width="match_parent"
@@ -112,6 +115,7 @@
                 android:layout_marginTop="130dp"
                 android:textSize="25dp"
                 android:text="Khoản chi"
+                android:textColor="#000"
                 />
             <Button
                 android:id="@+id/logout"
@@ -120,6 +124,7 @@
                 android:layout_marginTop="190dp"
                 android:textSize="25dp"
                 android:text="Đăng xuất"
+                android:textColor="#000"
                 />
         </com.google.android.material.navigation.NavigationView>
     </LinearLayout>
