@@ -109,8 +109,8 @@ public class home_Fragment extends Fragment {
                         String myid=currentuserid.getUid();
                         String id=dt.child("id").getValue().toString();
                         if(myid.equals(id)){
-                        int tienthu=Integer.parseInt(dt.child("content").getValue().toString());
-                        int daco=hashMapthu.get(month);
+                            int tienthu=Integer.parseInt(dt.child("content").getValue().toString());
+                            int daco=hashMapthu.get(month);
                             hashMapthu.put(month,daco+tienthu);}
 
 
@@ -119,7 +119,7 @@ public class home_Fragment extends Fragment {
 
                     for(int i=1;i<=12;i++){
 
-                tongthu.add(new BarEntry(i, i<10?hashMapthu.get("0"+i):hashMapthu.get(String.valueOf(i))));
+                        tongthu.add(new BarEntry(i, i<10?hashMapthu.get("0"+i):hashMapthu.get(String.valueOf(i))));
                     }
                     BarDataSet barDataSetthu=new BarDataSet(tongthu,"Tong thu");
                     barDataSetthu.setColors(Color.RED);
