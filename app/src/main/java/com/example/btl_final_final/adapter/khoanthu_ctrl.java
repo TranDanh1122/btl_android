@@ -43,6 +43,7 @@ public class khoanthu_ctrl extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView =inflater.inflate(layout,null);
         TextView content = (TextView) convertView.findViewById(R.id.khoanthu);
+        TextView id = (TextView) convertView.findViewById(R.id.idkt);
         khoanthu khoanthu = khoanthuList.get(position);
         content.setText(khoanthu.getKhoanthu());
         return convertView;

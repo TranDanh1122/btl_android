@@ -105,7 +105,25 @@ public class chi_tab2_Fragment extends Fragment {
         String myid=currentuserid.getUid();
         add=rootview.findViewById(R.id.add);
         lvDanhSach=rootview.findViewById(R.id.listloaichi);
+        FirebaseDatabase.
+                getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
+                .child("loaichi").orderByKey()
+                .limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+                    maxid=Integer.parseInt(childSnapshot.getKey());
+                }
+                Toast.makeText(chi_tab2_Fragment.this.getContext(), String.valueOf(maxid) , Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+
+        });
         //popupadd
         final View popupxml=inflater.inflate(R.layout.popup_add_loaichi, null);
         loaichi=(EditText)popupxml.findViewById(R.id.loaichi);
@@ -120,7 +138,7 @@ public class chi_tab2_Fragment extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     loaichi.setText(loaichiArrayList.get(position).getLoaichi());
-                    flag=position;
+                    flag=Integer.parseInt(loaichiArrayList.get(position).getId());
                     alertDialog.show();
                     alertDialog.getWindow().setLayout(1550, 1550);
                 }
@@ -144,7 +162,8 @@ public class chi_tab2_Fragment extends Fragment {
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference.child(""+((int)flag+1)).removeValue();
+                reference.child(""+((int)flag)).removeValue();
+                alertDialog.dismiss();
             }
         });
         save.setOnClickListener(new View.OnClickListener() {
@@ -154,15 +173,12 @@ public class chi_tab2_Fragment extends Fragment {
                     reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if(task.getResult().exists()){
-                                maxid =(int) task.getResult().getChildrenCount();
-                                Toast.makeText(chi_tab2_Fragment.this.getContext(), String.valueOf(maxid), Toast.LENGTH_SHORT).show();
-                            }
+
                             HashMap<String,String> hashMap=new HashMap<>();
                             hashMap.put("id",myid);
                             hashMap.put("pos",String.valueOf(flag));
                             hashMap.put("content",loaichi.getText().toString());
-                            reference.child(""+((int)flag+1)).setValue(hashMap);
+                            reference.child(""+((int)flag)).setValue(hashMap);
                             alertDialog.dismiss();
                             Toast.makeText(chi_tab2_Fragment.this.getContext(), "da them update loai chi", Toast.LENGTH_SHORT).show();
                         }
@@ -173,13 +189,10 @@ public class chi_tab2_Fragment extends Fragment {
                 reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if(task.getResult().exists()){
-                            maxid =(int) task.getResult().getChildrenCount();
-                            Toast.makeText(chi_tab2_Fragment.this.getContext(), String.valueOf(maxid), Toast.LENGTH_SHORT).show();
-                        }
+
                         HashMap<String,String> hashMap=new HashMap<>();
                         hashMap.put("id",myid);
-                        hashMap.put("pos",String.valueOf(maxid));
+                        hashMap.put("pos",String.valueOf(maxid+1));
 
                         hashMap.put("content",loaichi.getText().toString());
                         reference.child(""+((int)maxid+1)).setValue(hashMap);
@@ -211,7 +224,7 @@ public class chi_tab2_Fragment extends Fragment {
                 else{
                     for (DataSnapshot dt : dataSnapshot.getChildren()) {
                         String content = dt.child("content").getValue(String.class);
-                        String id = dt.child("pos").getValue(String.class);
+                        String id = dt.getKey();
                         if(content==null){}else {
                             if (dt.child("id").getValue().toString().equals(myid)) {
                                 loaichiArrayList.add(new loaichi(content, id));

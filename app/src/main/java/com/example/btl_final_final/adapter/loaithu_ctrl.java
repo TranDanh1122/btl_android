@@ -65,6 +65,7 @@ public class loaithu_ctrl extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView =inflater.inflate(layout,null);
         TextView content = (TextView) convertView.findViewById(R.id.loaithu);
+        TextView id = (TextView) convertView.findViewById(R.id.idlt);
         loaithu loaithu = loaithuList.get(position);
         content.setText(loaithu.getLoaithu());
         return convertView;

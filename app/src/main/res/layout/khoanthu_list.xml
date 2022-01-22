@@ -11,4 +11,13 @@
         android:layout_height="wrap_content">
 
     </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/idkt"
+        android:textSize="35dp"
+        android:visibility="invisible"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
 </LinearLayout>

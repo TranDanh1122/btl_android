@@ -43,6 +43,7 @@ public class khoanchi_ctrl extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView =inflater.inflate(layout,null);
         TextView content = (TextView) convertView.findViewById(R.id.khoanchi);
+        TextView id=(TextView) convertView.findViewById(R.id.idkc);
         khoanchi khoanchi = khoanchiList.get(position);
         content.setText(khoanchi.getKhoanchi());
         return convertView;

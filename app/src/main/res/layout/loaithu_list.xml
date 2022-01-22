@@ -14,7 +14,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:id="@+id/id"
+        android:id="@+id/idlt"
         android:textSize="35dp"
         android:visibility="invisible"
         android:layout_margin="5dp"

@@ -112,7 +112,22 @@ public class thu_tab_Fragment extends Fragment {
         String myid=currentuserid.getUid();
         add=rootview.findViewById(R.id.add);
         lvDanhSach=rootview.findViewById(R.id.listkhoanthu);
+       FirebaseDatabase.
+                getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
+                .child("khoanthu").orderByKey()
+                .limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot snapshot) {
+               for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+                   maxid=Integer.parseInt(childSnapshot.getKey());
+               }
+           }
 
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
+
+           }
+       });
         //popupadd
         final View popupxml=inflater.inflate(R.layout.popup_add_khoanthuchi,null);
         khoanthu=(EditText)popupxml.findViewById(R.id.khoanthuchi);
@@ -129,7 +144,7 @@ public class thu_tab_Fragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 khoanthu.setText(khoanthuArrayList.get(position).getKhoanthu());
-                flag=position;
+                flag=Integer.parseInt(khoanthuArrayList.get(position).getId());
                 spinnerloaithu = (Spinner) popupxml.findViewById(R.id.loaithuchi);
                 loaithu=new String[100];
                 DatabaseReference  refgetloaithu= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("loaithu");
@@ -233,7 +248,8 @@ public class thu_tab_Fragment extends Fragment {
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference.child(""+((int)flag+1)).removeValue();
+                reference.child(""+((int)flag)).removeValue();
+                alertDialog.dismiss();
             }
         });
         save.setOnClickListener(new View.OnClickListener() {
@@ -243,17 +259,16 @@ public class thu_tab_Fragment extends Fragment {
                     reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if(task.getResult().exists()){
-                                maxid =(int) task.getResult().getChildrenCount();
-                                Toast.makeText(thu_tab_Fragment.this.getContext(), String.valueOf(maxid), Toast.LENGTH_SHORT).show();
-                            }
+
                             HashMap<String,String> hashMap=new HashMap<>();
                             hashMap.put("id",myid);
                             hashMap.put("pos",String.valueOf(flag));
-                            hashMap.put("content",khoanthu.getText().toString());
+                            hashMap.put("content",khoanthu.getText().toString().substring(1).replace(",", ""));
                             hashMap.put("type",spinnerloaithu.getSelectedItem().toString());
-
-                            reference.child(""+((int)flag+1)).setValue(hashMap);
+                            DateFormat dateFormat = new SimpleDateFormat("MM");
+                            Date date = new Date();
+                            hashMap.put("month", dateFormat.format(date).toString());
+                            reference.child(""+((int)flag)).setValue(hashMap);
                             alertDialog.dismiss();
                             Toast.makeText(thu_tab_Fragment.this.getContext(), "da them update loai thu", Toast.LENGTH_SHORT).show();
                         }
@@ -261,16 +276,15 @@ public class thu_tab_Fragment extends Fragment {
 
                     });
                 }else{
+
+
                     reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if(task.getResult().exists()){
-                                maxid =(int) task.getResult().getChildrenCount();
-                                Toast.makeText(thu_tab_Fragment.this.getContext(), String.valueOf(maxid), Toast.LENGTH_SHORT).show();
-                            }
+
                             HashMap<String,String> hashMap=new HashMap<>();
                             hashMap.put("id",myid);
-                            hashMap.put("pos",String.valueOf(maxid));
+                            hashMap.put("pos",String.valueOf(maxid+1));
                             hashMap.put("content",khoanthu.getText().toString());
                             hashMap.put("type",spinnerloaithu.getSelectedItem().toString());
                             DateFormat dateFormat = new SimpleDateFormat("MM");
@@ -305,11 +319,12 @@ public class thu_tab_Fragment extends Fragment {
                 else{
                     for (DataSnapshot dt : dataSnapshot.getChildren()) {
                         String content = dt.child("content").getValue(String.class);
-                        String id = dt.child("pos").getValue(String.class);
+                        String id = dt.getKey();
                         String type = dt.child("type").getValue(String.class);
                         if(content==null){}else {
                             if (dt.child("id").getValue().toString().equals(myid)) {
-                                tongint+=Integer.parseInt(content);
+
+                                tongint+=Integer.parseInt(content.replace(",", ""));
                                 NumberFormat format = NumberFormat.getCurrencyInstance();
                                 format.setMaximumFractionDigits(0);
                                 format.setCurrency(Currency.getInstance("VND"));

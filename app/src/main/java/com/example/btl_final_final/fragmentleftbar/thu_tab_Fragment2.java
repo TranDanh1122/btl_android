@@ -102,7 +102,25 @@ public class thu_tab_Fragment2 extends Fragment {
 
         add=rootview.findViewById(R.id.add);
         lvDanhSach=rootview.findViewById(R.id.listloaithu);
+        FirebaseDatabase.
+                getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
+                .child("loaithu").orderByKey()
+                .limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+                    maxid=Integer.parseInt(childSnapshot.getKey());
+                }
+                Toast.makeText(thu_tab_Fragment2.this.getContext(), String.valueOf(maxid) , Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+
+        });
         //popupadd
         final View popupxml=inflater.inflate(R.layout.popup_add_loaichi, null);
         loaithu=(EditText)popupxml.findViewById(R.id.loaichi);
@@ -117,7 +135,7 @@ public class thu_tab_Fragment2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 loaithu.setText(loaithuArrayList.get(position).getLoaithu());
-                flag=position;
+                flag=Integer.parseInt(loaithuArrayList.get(position).getId());
                 alertDialog.show();
                 alertDialog.getWindow().setLayout(1550, 1550);
             }
@@ -141,7 +159,8 @@ public class thu_tab_Fragment2 extends Fragment {
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference.child(""+((int)flag+1)).removeValue();
+                reference.child(""+((int)flag)).removeValue();
+                alertDialog.dismiss();
             }
         });
         save.setOnClickListener(new View.OnClickListener() {
@@ -151,10 +170,7 @@ public class thu_tab_Fragment2 extends Fragment {
                     reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if(task.getResult().exists()){
-                                maxid =(int) task.getResult().getChildrenCount();
-                                Toast.makeText(thu_tab_Fragment2.this.getContext(), String.valueOf(maxid), Toast.LENGTH_SHORT).show();
-                            }
+
                             HashMap<String,String> hashMap=new HashMap<>();
                             hashMap.put("id",myid);
                             hashMap.put("pos",String.valueOf(flag));
@@ -170,10 +186,7 @@ public class thu_tab_Fragment2 extends Fragment {
                     reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if(task.getResult().exists()){
-                                maxid =(int) task.getResult().getChildrenCount();
-                                Toast.makeText(thu_tab_Fragment2.this.getContext(), String.valueOf(maxid), Toast.LENGTH_SHORT).show();
-                            }
+
                             HashMap<String,String> hashMap=new HashMap<>();
                             hashMap.put("id",myid);
                             hashMap.put("pos",String.valueOf(maxid));
@@ -207,7 +220,7 @@ public class thu_tab_Fragment2 extends Fragment {
                 else{
                     for (DataSnapshot dt : dataSnapshot.getChildren()) {
                         String content = dt.child("content").getValue(String.class);
-                        String id = dt.child("pos").getValue(String.class);
+                        String id = dt.getKey();
                         if(content==null){}else {
                             if (dt.child("id").getValue().toString().equals(myid)) {
                                 loaithuArrayList.add(new loaithu(content, id));

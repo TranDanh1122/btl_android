@@ -64,6 +64,7 @@ public class loaichi_ctrl extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView =inflater.inflate(layout,null);
         TextView content = (TextView) convertView.findViewById(R.id.loaichi);
+        TextView id = (TextView) convertView.findViewById(R.id.idlc);
         loaichi loaichi = loaichiList.get(position);
         content.setText(loaichi.getLoaichi());
         return convertView;
