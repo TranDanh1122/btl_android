@@ -55,7 +55,7 @@
             android:gravity="bottom"
             android:orientation="vertical"
             android:padding="16dp"
-            android:backgroundTint="#42F349">
+            android:backgroundTint="@color/colorAccent">
             <ImageView
                 android:id="@+id/back"
                 android:layout_width="25dp"
@@ -90,7 +90,7 @@
         <com.google.android.material.navigation.NavigationView
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/whiteTextColor"
             android:id="@+id/sidemenu"
             android:layout_height="match_parent">
 
@@ -98,7 +98,7 @@
                 android:id="@+id/home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                android:backgroundTint="@color/whiteTextColor"
                 android:layout_marginTop="10dp"
                 android:text="Trang chủ"
                 android:textSize="25dp"
@@ -111,6 +111,7 @@
                 android:layout_marginTop="70dp"
                 android:textSize="25dp"
                 android:text="Khoản thu"
+                android:backgroundTint="@color/whiteTextColor"
                 android:textColor="#000"
                 />
             <Button
@@ -120,6 +121,7 @@
                 android:layout_marginTop="130dp"
                 android:textSize="25dp"
                 android:text="Khoản chi"
+                android:backgroundTint="@color/whiteTextColor"
                 android:textColor="#000"
                 />
             <Button
@@ -129,6 +131,7 @@
                 android:layout_marginTop="190dp"
                 android:textSize="25dp"
                 android:text="Đăng xuất"
+                android:backgroundTint="@color/whiteTextColor"
                 android:textColor="#000"
                 />
         </com.google.android.material.navigation.NavigationView>
