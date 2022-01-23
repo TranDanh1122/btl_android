@@ -68,7 +68,7 @@ public class thu_tab_Fragment extends Fragment {
     DatabaseReference reference;
     int maxid=0,tongint=0;
     int flag=-1;
-    private Spinner spinnerloaithu;
+    private Spinner spinnerloaithu,spinnermonth;
     ImageView add;
     String[] loaithu;
     TextView tong;
@@ -137,7 +137,23 @@ public class thu_tab_Fragment extends Fragment {
         dialogbuider=new AlertDialog.Builder(thu_tab_Fragment.this.getContext());
         dialogbuider.setView(popupxml);
         alertDialog=dialogbuider.create();
-    tong=rootview.findViewById(R.id.tong);
+        tong=rootview.findViewById(R.id.tong);
+        String [] month=new String[12];
+        for (int k=1;k<=12;k++){
+            if(k<10) {
+                month[k-1] ="0"+k;
+            }else {
+                month[k-1] =String.valueOf(k);
+            }
+        }
+        spinnermonth = (Spinner) rootview.findViewById(R.id.monthsortt);
+        ArrayAdapter<String> madapter = new ArrayAdapter<String>(thu_tab_Fragment.this.getContext(),
+                android.R.layout.simple_spinner_item,
+                month);
+        madapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnermonth.setAdapter(madapter);
+
         reference = FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("khoanthu");
 
         lvDanhSach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -309,45 +325,96 @@ public class thu_tab_Fragment extends Fragment {
                 alertDialog.dismiss();
             }
         });
-
-        DatabaseReference  ref= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("khoanthu");
-        ref.addValueEventListener(new ValueEventListener() {
+        spinnermonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                khoanthuArrayList=new ArrayList<>();
-                if(dataSnapshot==null){}
-                else{
-                    for (DataSnapshot dt : dataSnapshot.getChildren()) {
-                        String content = dt.child("content").getValue(String.class);
-                        String id = dt.getKey();
-                        String type = dt.child("type").getValue(String.class);
-                        if(content==null){}else {
-                            if (dt.child("id").getValue().toString().equals(myid)) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                DatabaseReference  ref= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("khoanthu");
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        tongint=0;
+                        khoanthuArrayList=new ArrayList<>();
+                        if(dataSnapshot==null){}
+                        else{
+                            for (DataSnapshot dt : dataSnapshot.getChildren()) {
+                                String content = dt.child("content").getValue(String.class);
+                                String id = dt.getKey();
+                                String type = dt.child("type").getValue(String.class);
+                                String monthdb = dt.child("month").getValue(String.class);
+                                if(content==null){}else {
+                                    if(parent.getSelectedItem().toString().equals(monthdb)) {
+                                        if (dt.child("id").getValue().toString().equals(myid)) {
 
-                                tongint+=Integer.parseInt(content.replace(",", ""));
-                                NumberFormat format = NumberFormat.getCurrencyInstance();
-                                format.setMaximumFractionDigits(0);
-                                format.setCurrency(Currency.getInstance("VND"));
-                                khoanthuArrayList.add(new khoanthu( format.format(Integer.parseInt(content)), id, type));
+                                            tongint += Integer.parseInt(content.replace(",", ""));
+                                            NumberFormat format = NumberFormat.getCurrencyInstance();
+                                            format.setMaximumFractionDigits(0);
+                                            format.setCurrency(Currency.getInstance("VND"));
+                                            khoanthuArrayList.add(new khoanthu(format.format(Integer.parseInt(content)), id, type));
 
+                                        }
+                                    }
+                                }
                             }
+                            NumberFormat format = NumberFormat.getCurrencyInstance();
+                            format.setMaximumFractionDigits(0);
+                            format.setCurrency(Currency.getInstance("VND"));
+
+                            tong.setText(format.format(tongint));
+                            adapter = new khoanthu_ctrl(thu_tab_Fragment.this.getContext(), R.layout.khoanthu_list, khoanthuArrayList);
+                            adapter.notifyDataSetChanged();
+                            lvDanhSach.setAdapter(adapter);
                         }
                     }
-                    NumberFormat format = NumberFormat.getCurrencyInstance();
-                    format.setMaximumFractionDigits(0);
-                    format.setCurrency(Currency.getInstance("VND"));
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                    tong.setText(format.format(tongint));
-                    adapter = new khoanthu_ctrl(thu_tab_Fragment.this.getContext(), R.layout.khoanthu_list, khoanthuArrayList);
-                    adapter.notifyDataSetChanged();
-                    lvDanhSach.setAdapter(adapter);
-                }
+                    }
+                });
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                DatabaseReference  ref= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("khoanthu");
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        khoanthuArrayList=new ArrayList<>();
+                        if(dataSnapshot==null){}
+                        else{
+                            for (DataSnapshot dt : dataSnapshot.getChildren()) {
+                                String content = dt.child("content").getValue(String.class);
+                                String id = dt.getKey();
+                                String type = dt.child("type").getValue(String.class);
+                                if(content==null){}else {
+                                    if (dt.child("id").getValue().toString().equals(myid)) {
+
+                                        tongint+=Integer.parseInt(content.replace(",", ""));
+                                        NumberFormat format = NumberFormat.getCurrencyInstance();
+                                        format.setMaximumFractionDigits(0);
+                                        format.setCurrency(Currency.getInstance("VND"));
+                                        khoanthuArrayList.add(new khoanthu( format.format(Integer.parseInt(content)), id, type));
+
+                                    }
+                                }
+                            }
+                            NumberFormat format = NumberFormat.getCurrencyInstance();
+                            format.setMaximumFractionDigits(0);
+                            format.setCurrency(Currency.getInstance("VND"));
+
+                            tong.setText(format.format(tongint));
+                            adapter = new khoanthu_ctrl(thu_tab_Fragment.this.getContext(), R.layout.khoanthu_list, khoanthuArrayList);
+                            adapter.notifyDataSetChanged();
+                            lvDanhSach.setAdapter(adapter);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
+
 
         return rootview;
     }
