@@ -12,6 +12,7 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Quản lý thu chi");
         setContentView(R.layout.activity_start);
         dangnhap=findViewById(R.id.chuyenlogin);
         dangki=findViewById(R.id.chuyenregister);
