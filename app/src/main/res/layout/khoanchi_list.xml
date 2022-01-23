@@ -3,20 +3,28 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/khoanchi"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="35dp"></TextView>
     <TextView
         android:layout_width="match_parent"
-        android:id="@+id/khoanchi"
+        android:id="@+id/tenkhoanchi"
         android:textSize="35dp"
         android:layout_margin="5dp"
         android:layout_height="wrap_content">
     </TextView>
     <TextView
-        android:layout_width="match_parent"
         android:id="@+id/idkc"
-        android:textSize="35dp"
-        android:visibility="invisible"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_height="wrap_content">
+        android:textSize="35dp"
+        android:visibility="invisible">
 
     </TextView>
+
 </LinearLayout>

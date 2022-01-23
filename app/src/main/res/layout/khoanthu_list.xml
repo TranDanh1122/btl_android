@@ -3,13 +3,21 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/khoanthu"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="35dp">
+
+    </TextView>
     <TextView
         android:layout_width="match_parent"
-        android:id="@+id/khoanthu"
+        android:id="@+id/tenkhoanthu"
         android:textSize="35dp"
         android:layout_margin="5dp"
         android:layout_height="wrap_content">
-
     </TextView>
     <TextView
         android:layout_width="match_parent"
