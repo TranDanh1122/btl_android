@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView mail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setTitle("Trang chủ");
 
         super.onCreate(savedInstanceState);
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.chi:
                 if (current != chi) {
+                    getSupportActionBar().setTitle("Khoản Chi");
                     FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.maincontent, new chi_Fragment());
                     fragmentTransaction.commit();
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.thu:
                 if (current != thu) {
+                    getSupportActionBar().setTitle("Khoản Thu");
                     FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.maincontent, new Thu_Fragment());
                     fragmentTransaction.commit();
