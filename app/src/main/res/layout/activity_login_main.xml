@@ -32,7 +32,7 @@
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="Chào mừng bạn \nđến trang \nđăng nhập!" />
+                    android:text="Chào mừng bạn \nđến trang đăng \nnhập!" />
 
                 <ImageView
                     android:layout_width="wrap_content"
