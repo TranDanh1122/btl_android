@@ -38,7 +38,7 @@
         android:src="@drawable/ic_add"
         android:id="@+id/add"
         android:layout_marginLeft="20dp"
-        android:background="@color/white"
+        android:background="@color/colorAccent"
         android:layout_height="50dp">
     </ImageView>
     </LinearLayout>

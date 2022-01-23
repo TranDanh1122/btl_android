@@ -18,14 +18,14 @@ public class StartActivity extends AppCompatActivity {
         dangki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StartActivity.this,DangkyActivity.class));
+                startActivity(new Intent(StartActivity.this,RegisterMainActivity.class));
                 finish();
             }
         });
         dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StartActivity.this,DangnhapActivity.class));
+                startActivity(new Intent(StartActivity.this,LoginMainActivity.class));
                 finish();
             }
         });

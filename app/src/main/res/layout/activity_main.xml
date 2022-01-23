@@ -90,7 +90,7 @@
         <com.google.android.material.navigation.NavigationView
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/colorAccent"
             android:id="@+id/sidemenu"
             android:layout_height="match_parent">
 
