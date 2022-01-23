@@ -64,6 +64,7 @@
                             android:id="@+id/username"
                             style="@style/modifiedEditText"
                             android:hint="Use Name"
+                            android:textSize="25dp"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
 
@@ -77,6 +78,7 @@
                             android:id="@+id/useremail"
                             style="@style/modifiedEditText"
                             android:hint="@string/login_email_hint"
+                            android:textSize="25dp"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
 
@@ -90,6 +92,7 @@
                             android:id="@+id/userpassword"
                             style="@style/modifiedEditText"
                             android:hint="@string/login_password_hint"
+                            android:textSize="25dp"
                             android:inputType="textPassword"
                             android:maxLines="1" />
 
