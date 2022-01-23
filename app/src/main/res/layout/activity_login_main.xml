@@ -26,13 +26,14 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="Chào mừng bạn \nđến trang \nđăng nhập!" />
+                    android:text="Chào mừng bạn \nđến trang đăng \nnhập!" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -52,7 +53,7 @@
                     style="@style/modifiedEditText"
                     android:hint="@string/login_email_hint"
                     android:inputType="textEmailAddress"
-                    android:textSize="25dp"
+                    android:textSize="27dp"
                     android:maxLines="1"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +67,7 @@
                     style="@style/modifiedEditText"
                     android:hint="@string/login_password_hint"
                     android:inputType="textPassword"
-                    android:textSize="25dp"
+                    android:textSize="27dp"
                     android:maxLines="1"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +76,6 @@
                 style="@style/viewParent"
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
-                android:text="Quên mật khẩu?"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/newsMoreTextSize"/>
 
@@ -90,14 +90,16 @@
                 app:spinning_bar_padding="6dp"
                 app:spinning_bar_width="4dp"/>
 
-            <TextView
-                style="@style/parent"
+            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                android:onClick="onLoginClick"
+                style="@style/loginButton"
+                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:text=""
-                android:textAlignment="center"
-                android:textColor="@color/themeColor"
-                android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:text="Back"
+                app:initialCornerAngle="27dp"
+                app:spinning_bar_color="#fff"
+                app:spinning_bar_padding="6dp"
+                app:spinning_bar_width="4dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -160,12 +162,6 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/ic_side_bg"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="11dp"
-        android:layout_marginBottom="30dp"/>
+
 
 </RelativeLayout>

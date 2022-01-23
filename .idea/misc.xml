@@ -28,6 +28,22 @@
         <entry key="..\:/Android Studio/btl_android/app/src/main/res/layout/popup_add_loaichi.xml" value="0.22" />
         <entry key="..\:/Android Studio/btl_android/app/src/main/res/layout/popup_edit_loaichi.xml" value="0.18" />
         <entry key="..\:/Android Studio/btl_android/app/src/main/res/layout/thu_fragment.xml" value="0.22" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/drawable/button_background_blue.xml" value="0.2703125" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/activity_login_main.xml" value="0.2391304347826087" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/activity_register_main.xml" value="0.2391304347826087" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/activity_start.xml" value="0.2391304347826087" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/fragment_chi_tab1_.xml" value="0.13020833333333334" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/fragment_chi_tab2_.xml" value="0.13020833333333334" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/fragment_home_.xml" value="0.2391304347826087" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/fragment_thu_tab_.xml" value="0.13020833333333334" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/fragment_thu_tab_2.xml" value="0.13020833333333334" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/popup_add_khoanthuchi.xml" value="0.24094202898550723" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/popup_add_loaichi.xml" value="0.24094202898550723" />
+        <entry key="..\:/BTL-ANDROID/app/src/main/res/layout/popup_edit_loaichi.xml" value="0.24094202898550723" />
+>>>>>>> 0e5529f27cab94d6b4cba8d1a568b4ea1b1569d4
         <entry key="..\:/BTL_final_final/app/src/main/res/layout/activity_dangky.xml" value="0.11927083333333334" />
         <entry key="..\:/BTL_final_final/app/src/main/res/layout/activity_dangnhap.xml" value="0.11927083333333334" />
         <entry key="..\:/BTL_final_final/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />

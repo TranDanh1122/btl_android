@@ -64,7 +64,7 @@
                             android:id="@+id/username"
                             style="@style/modifiedEditText"
                             android:hint="Use Name"
-                            android:textSize="25dp"
+                            android:textSize="27dp"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
 
@@ -78,7 +78,7 @@
                             android:id="@+id/useremail"
                             style="@style/modifiedEditText"
                             android:hint="@string/login_email_hint"
-                            android:textSize="25dp"
+                            android:textSize="27dp"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
 
@@ -92,7 +92,7 @@
                             android:id="@+id/userpassword"
                             style="@style/modifiedEditText"
                             android:hint="@string/login_password_hint"
-                            android:textSize="25dp"
+                            android:textSize="27dp"
                             android:inputType="textPassword"
                             android:maxLines="1" />
 
@@ -104,6 +104,17 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         android:text="Đăng ký"
+                        app:initialCornerAngle="27dp"
+                        app:spinning_bar_color="#fff"
+                        app:spinning_bar_padding="6dp"
+                        app:spinning_bar_width="4dp" />
+
+                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                        android:onClick="registerback"
+                        style="@style/loginButton"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:text="Back"
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#fff"
                         app:spinning_bar_padding="6dp"

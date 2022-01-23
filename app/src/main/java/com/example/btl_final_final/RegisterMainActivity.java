@@ -86,4 +86,8 @@ public class RegisterMainActivity extends AppCompatActivity {
             }
         });
     }
+    public void registerback(View view) {
+        startActivity(new Intent(RegisterMainActivity.this, StartActivity.class));
+        overridePendingTransition(R.anim.slide_in_left, R.anim.stay);
+    }
 }
