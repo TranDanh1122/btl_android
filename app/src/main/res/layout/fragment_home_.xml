@@ -15,31 +15,75 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SO SÁNH THU CHI"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#7B1FA2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="50dp"
+                >
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chọn tháng xem thống kê: "
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#100F0F"
+                android:layout_marginTop="50dp"
+                ></TextView>
             <Spinner
                 android:id="@+id/monthss"
                 android:layout_width="match_parent"
                 android:spinnerMode="dropdown"
-                android:layout_marginTop="30dp"
                 android:layout_height="25dp"
                 />
-
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barchartthu"
-        android:layout_width="500dp"
-        android:layout_height="350dp">
-    </com.github.mikephil.charting.charts.BarChart>
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barchartchi"
-        android:layout_width="500dp"
-        android:layout_margin="10dp"
-        android:layout_height="350dp">
-    </com.github.mikephil.charting.charts.BarChart>
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/barchartsosanh"
                 android:layout_width="500dp"
                 android:layout_margin="10dp"
                 android:layout_height="350dp">
             </com.github.mikephil.charting.charts.BarChart>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="THỐNG KÊ CÁC KHOẢN THU"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#CF0D0D"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+    </TextView>
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchartthu"
+        android:layout_width="500dp"
+        android:layout_height="350dp">
+    </com.github.mikephil.charting.charts.BarChart>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="THỐNG KÊ CÁC KHOẢN THU"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#0A0DD1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+            </TextView>
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchartchi"
+        android:layout_width="500dp"
+        android:layout_margin="10dp"
+        android:layout_height="350dp">
+    </com.github.mikephil.charting.charts.BarChart>
+
+
         </LinearLayout>
 
     </HorizontalScrollView>
