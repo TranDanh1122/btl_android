@@ -67,4 +67,8 @@ public class LoginMainActivity extends AppCompatActivity {
             }
         });
     }
+    public void onLoginClick(View view) {
+        startActivity(new Intent(LoginMainActivity.this, StartActivity.class));
+        overridePendingTransition(R.anim.slide_in_left, R.anim.stay);
+    }
 }
