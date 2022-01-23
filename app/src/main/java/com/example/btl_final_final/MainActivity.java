@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView name, email;
         name=findViewById(R.id.username);
         email=findViewById(R.id.email);
+        //first load fragment (home)
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.maincontent,new home_Fragment());
         fragmentTransaction.commit();
@@ -77,8 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //load current user
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        firestore.setFirestoreSettings(settings);
+
         String currentuseremail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         mail=findViewById(R.id.mail);

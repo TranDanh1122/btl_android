@@ -2,13 +2,14 @@
   <library name="Gradle: com.google.firebase:firebase-database:20.0.3@aar">
     <CLASSES>
       <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/030b28bcebb4c8bc83b425c70df562ad/transformed/jetified-firebase-database-20.0.3/res" />
-      <root url="jar://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/fdcf3172eb58868b6cde8efd15c88446/transformed/jetified-firebase-database-20.0.3/jars/classes.jar!/" />
-      <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/fdcf3172eb58868b6cde8efd15c88446/transformed/jetified-firebase-database-20.0.3/AndroidManifest.xml" />
       <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/fdcf3172eb58868b6cde8efd15c88446/transformed/jetified-firebase-database-20.0.3/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fdcf3172eb58868b6cde8efd15c88446/transformed/jetified-firebase-database-20.0.3/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/faded8ed388d6fa0264133ae8def9abf/transformed/jetified-firebase-database-20.0.3/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/faded8ed388d6fa0264133ae8def9abf/transformed/jetified-firebase-database-20.0.3/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/faded8ed388d6fa0264133ae8def9abf/transformed/jetified-firebase-database-20.0.3/jars/classes.jar!/" />
+      <root url="jar://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/faded8ed388d6fa0264133ae8def9abf/transformed/jetified-firebase-database-20.0.3/jars/classes.jar!/" />
+      <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/faded8ed388d6fa0264133ae8def9abf/transformed/jetified-firebase-database-20.0.3/AndroidManifest.xml" />
+      <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/faded8ed388d6fa0264133ae8def9abf/transformed/jetified-firebase-database-20.0.3/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://C:/Program Files/Java/jdk-17.0.1/caches/modules-2/files-2.1/com.google.firebase/firebase-database/20.0.3/42ed197c7be33ec1900a6d71c082dc432c92d1df/firebase-database-20.0.3-javadoc.jar!/" />

@@ -15,8 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <Spinner
+                android:id="@+id/monthss"
+                android:layout_width="match_parent"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="30dp"
+                android:layout_height="25dp"
+                />
 
-    <!-- TODO: Update blank fragment layout -->
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barchartthu"
         android:layout_width="500dp"
@@ -28,7 +34,12 @@
         android:layout_margin="10dp"
         android:layout_height="350dp">
     </com.github.mikephil.charting.charts.BarChart>
-
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barchartsosanh"
+                android:layout_width="500dp"
+                android:layout_margin="10dp"
+                android:layout_height="350dp">
+            </com.github.mikephil.charting.charts.BarChart>
         </LinearLayout>
 
     </HorizontalScrollView>

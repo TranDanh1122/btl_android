@@ -38,7 +38,7 @@ public class LoginMainActivity extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    // Perform action on key press
+                    login(email.getText().toString(),password.getText().toString());
                     return true;
                 }
                 return false;

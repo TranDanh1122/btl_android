@@ -2,13 +2,14 @@
   <library name="Gradle: com.google.firebase:firebase-firestore:24.0.0@aar">
     <CLASSES>
       <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/aa3b6737c4ccf9f08abad825db94af42/transformed/jetified-firebase-firestore-24.0.0/res" />
-      <root url="jar://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/05fbe8963e44ea9f547f1683254005fb/transformed/jetified-firebase-firestore-24.0.0/jars/classes.jar!/" />
       <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/05fbe8963e44ea9f547f1683254005fb/transformed/jetified-firebase-firestore-24.0.0/res" />
-      <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/05fbe8963e44ea9f547f1683254005fb/transformed/jetified-firebase-firestore-24.0.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/05fbe8963e44ea9f547f1683254005fb/transformed/jetified-firebase-firestore-24.0.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/99fa6c1adf32fc30d17d05dcc5b46292/transformed/jetified-firebase-firestore-24.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/99fa6c1adf32fc30d17d05dcc5b46292/transformed/jetified-firebase-firestore-24.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/99fa6c1adf32fc30d17d05dcc5b46292/transformed/jetified-firebase-firestore-24.0.0/AndroidManifest.xml" />
+      <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/99fa6c1adf32fc30d17d05dcc5b46292/transformed/jetified-firebase-firestore-24.0.0/res" />
+      <root url="jar://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/99fa6c1adf32fc30d17d05dcc5b46292/transformed/jetified-firebase-firestore-24.0.0/jars/classes.jar!/" />
+      <root url="file://C:/Program Files/Java/jdk-17.0.1/caches/transforms-3/99fa6c1adf32fc30d17d05dcc5b46292/transformed/jetified-firebase-firestore-24.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://C:/Program Files/Java/jdk-17.0.1/caches/modules-2/files-2.1/com.google.firebase/firebase-firestore/24.0.0/6ba202e50b0b454bfb2ac7be6aeb6aeaca2ce2b1/firebase-firestore-24.0.0-javadoc.jar!/" />

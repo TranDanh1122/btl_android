@@ -147,6 +147,7 @@ public class chi_tab1_Fragment extends Fragment {
 
 
         });
+        //spinner load thang
         String [] month=new String[12];
         for (int k=1;k<=12;k++){
             if(k<10) {
@@ -162,7 +163,7 @@ public class chi_tab1_Fragment extends Fragment {
         madapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnermonth.setAdapter(madapter);
-
+// lay khoan chi
         reference= FirebaseDatabase.getInstance("https://android-dhcn5-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("khoanchi");
 
         lvDanhSach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
